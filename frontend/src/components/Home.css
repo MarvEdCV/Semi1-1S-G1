@@ -1,9 +1,17 @@
 
 .contenedor{
-    display: block;
-    width: 100%;
+    width: 95%;
     height: 100%;
     position: absolute;
+    left: 5%;
+    overflow: auto;
+}
+.sidenav{
+    float: left;
+    display: block;
+    position: absolute;
+    width: 5%;
+    min-height: 100%;
 }
 
 .contenedor-izq{

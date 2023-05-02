@@ -1,7 +1,11 @@
-export const url_servidor = "http://3.15.164.81:3010/api";
+export const url_servidor = "http://localhost:3011/api";
 
 export const URLS = {
   user: `${url_servidor}/user`,
+  publicaciones: `${url_servidor}/publicaciones`,
+  publicaciones_categoria: `${url_servidor}/publicaciones-categoria`,
+  publicacion: `${url_servidor}/publicacion`,
+  categorias: `${url_servidor}/categorias`,
   perfil: `${url_servidor}/user/get`,
   login: `${url_servidor}/user/login`,
   album: `${url_servidor}/album`,

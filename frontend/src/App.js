@@ -14,6 +14,8 @@ import Login_camara from './components/Login_camara';
 import Descripcion_foto from './components/Descripcion_foto';
 import Extraer_texto from './components/Extraer_texto';
 import Boot from './components/Boot';
+import Ver_Publicaciones from './components/Ver_Publicaciones';
+import Crear_publicacion from './components/Crear_Publicacion';
 
 function App() {
   const [username, setUsername] = useState("")
@@ -24,6 +26,8 @@ function App() {
         <Route path='/login-camara' element={<Login_camara setUsername={setUsername}/>}/>
         <Route path={`/registro/`} element={<Registro />}/>
         <Route path={`/home/:username`} element={[<SideMenu username={username}/>,<Home setUsername={setUsername}/>]}/>
+        <Route path={`/crear-publicacion/:username`} element={[<SideMenu username={username}/>,<Crear_publicacion setUsername={setUsername}/>]}/>
+        <Route path={`/ver-publicaciones/:username`} element={[<SideMenu username={username}/>,<Ver_Publicaciones setUsername={setUsername}/>]}/>
         <Route path={`/editar-perfil/:username`} element={[<SideMenu username={username}/>,<EditarPerfil setUsername={setUsername}/>]}/>
         <Route path={`/subir-foto/:username`} element={[<SideMenu username={username}/>,<SubirFoto setUsername={setUsername}/>]}/>
         <Route path={`/ver-fotos/:username`} element={[<SideMenu username={username}/>,<VerFotos setUsername={setUsername}/>]}/>

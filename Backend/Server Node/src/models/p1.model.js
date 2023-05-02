@@ -68,7 +68,7 @@ class P1Model extends Database{
     }
 
     obtenerPublicaciones(){
-        return this.queryView({sql: `SELECT descripcion,url, usuario_id FROM publicacion GROUP BY descripcion, url, usuario_id`})
+        return this.queryView({sql: `SELECT p.descripcion,p.url, p.usuario_id,u.nombre_completo FROM publicacion p,usuario u WHERE p.usuario_id=u.usuario_id  GROUP BY descripcion, url, usuario_id`})
     }
 
     obtenerCategorias(){
@@ -77,7 +77,7 @@ class P1Model extends Database{
 
     async obtenerPublicacionesCategoria(categoria){
         const categoriaId = await this.queryView({sql:`SELECT * FROM categoria WHERE nombre='${categoria}'`})
-        return this.queryView({sql: `SELECT * FROM publicacion WHERE categoria_id = ${categoriaId[0].categoria_id}`})
+        return this.queryView({sql: `SELECT p.*,u.nombre_completo FROM publicacion p,usuario u WHERE p.categoria_id = ${categoriaId[0].categoria_id} AND u.usuario_id=p.usuario_id`})
     }
 
 }

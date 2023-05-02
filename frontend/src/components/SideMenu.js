@@ -20,6 +20,7 @@ const SideMenu = ({username}) => {
         onSelect={(selected) =>{
             console.log(selected)
         }}
+        className="sidenav"
     >
         <SideNav.Toggle onClick={()=>setVisible(!visible)} expanded={!visible}/>
         <SideNav.Nav defaultSelected="home">
@@ -28,6 +29,22 @@ const SideMenu = ({username}) => {
                 </NavIcon>
                 <NavText className='nav-item' style={itemStyle}>
                     <Link className='nav-item-link' to={`/home/${username}`} style={itemStyle}>Home</Link>
+                </NavText>
+            </NavItem>
+            <NavItem eventKey="crear-publicacion">
+                <NavIcon>
+                <i className="fa fa-fw fa-device" style={{ fontSize: '1.75em' }} />
+                </NavIcon>
+                <NavText  style={itemStyle}>
+                <Link to={`/crear-publicacion/${username}`}  style={itemStyle}>Crear publicacion</Link>
+                </NavText>
+            </NavItem>
+            <NavItem eventKey="ver-publicaciones">
+                <NavIcon>
+                <i className="fa fa-fw fa-device" style={{ fontSize: '1.75em' }} />
+                </NavIcon>
+                <NavText  style={itemStyle}>
+                <Link to={`/ver-publicaciones/${username}`}  style={itemStyle}>Ver publicaciones</Link>
                 </NavText>
             </NavItem>
             <NavItem eventKey="ver-fotos">
