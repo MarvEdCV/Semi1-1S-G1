@@ -31,6 +31,18 @@ router.post("/usuarios",async (req,res)=>{
     });
 })
 
+router.post("/usuario",async (req,res)=>{
+    P1Model.create(req.app).buscarUsuario(req.body.correo).then(data => {
+        if(data.length === 0 ){
+            return res.status(httpCode.NOT_FOUND).json({"message":"el usuario no existe"})
+        }
+        return res.status(httpCode.OK).json(data);
+    }).catch(err => {
+        console.log(err);
+        res.status(httpCode.INTERNAL_SERVER_ERROR).json(err);
+    });
+})
+
 router.post("/usuarios/login", (req, res) => {
     P1Model.create(req.app)
         .buscarUsuario(req.body.correo).then(data => {
