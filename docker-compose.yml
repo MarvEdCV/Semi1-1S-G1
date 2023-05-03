@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  backend:
+    build: ./Backend/Server Node
+    container_name: api-semi1-proyecto
+    ports:
+      - '3011:3011'
+    volumes:
+      - ./Backend/Server Node:/app
+  
+  frontend:
+    build: ./frontend
+    container_name: reactjs-semi1-proyecto
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend:/app
+    stdin_open: true
