@@ -91,7 +91,6 @@ Con esta política, los usuarios tendrán la capacidad de crear, administrar y e
 
 ## Descripción de las funcionalidades implementadas en el chatbot
 
-El bot esta basado en un respueta el cual almacena todas las posibles soluciones que le puede dar.  El bot esta capacitado para dar 18 posibles respuestas o 18 funcionalidades, el cual por fines de proyectos solo da una respuesta simple de que sera enviada la informacion, pero en esta respuesta simple se almacenan los datos completados anteriormente.
 
 ### Entrada
 
@@ -99,51 +98,31 @@ En interacciones de entrada se tienen las siguientes posibilidades:
 - hola
 - me gustaria pedir una solucion
 
-Al ecribi de estas posibles entradas el boto emepzara a preguntar y tomar informaciones:
+Al ecribir de estas posibles entradas el boto emepzara a preguntar y tomar informaciones:
 
 ### Primera solicitud de información
 
-El ChatBot pregunta: Que tipo de solicitud te gustaria realizar: ¿fotos, inicio sesion ó detalle fotos?
-posibles respuestas del usuario:
-- fotos
-- inicio sesion
-- detalle fotos
+El ChatBot pregunta: Presentas una duda o una pregunta el dia de hoy, ¿Si?
 
-esta respuesta se almacena para luego dar otras posibles opciones.
+
+posibles respuestas del usuario:
+- si
+
+esta respuesta lo direcciona a la segunda entrada de informacion.
 
 ### Segunda solicitud de información
 
-el ChatBot pregutna: Tu como te identificas con el conocimiento de la aplicacion: ¿nuevo, administrador ó cliente?
+el ChatBot pregunta: Que ayuda e información te puedo brindar, escribe la pregunta: ¿Horarios de cursos, Redes de estudio, Calendario de labores, Tengo correo de ingeniería y Cursos de primer ingreso?
+
+
 posibles respuestas del usuario:
-- nuevo
-- administrador
-- cliente
+- Horarios de cursos
+- Redes de estudio
+- Calendario de labores
+- Tengo correo de ingeniería
+- Cursos de primer ingreso
 
-esta respuesta se almacena para luego dar otras posibles opciones, porque de este punto ya se tien almacenado que posibles caminos le van a dar al usuario, en el siguiente paso se muestra.
-
-
-### Tercera solicitud de información
-
-el ChatBot pregutna: ¿Qué tipo de accion te gustaria solicitar?
-
-En este punto el bot tiene almacenado las respuestas de las dos solicitudes anteriores, asi que segun haya elejio. se le muestran 3 caminos por cada tipo de usuario.
-
-posibles respuestas del usuario si su seleccion anterior fue cliente:
-- ver fotos
-- detalle de foto
-- extraer texto
-
-posibles respuestas del usuario si su seleccion anterior fue administrador:
-- albumes
-- foto perfil
-- comparar fotos
-
-posibles respuestas del usuario si su seleccion anterior fue nuevo:
-- inicio de sesion
-- inicio por camara
-- mi pefil
-
-Estas son las posibilidades que puede tener segun el tipo de adminitrador, si se escribe alguna que no este en ellas le volvera a preguntar.
+Al dar esta respueta el usuario, consulta el bakcup de respuesta, la compara y almacena la solucion para darla al final.
 
 
 ### Confirmacion
@@ -153,7 +132,7 @@ hay dos posibilidades de respuesta:
 - si
 - no
 
-la salida es:
+Posibles salidas:
 
 si la respuesta es si nos redirige a la salia o repsueta de cierra
 
@@ -162,11 +141,13 @@ Si la respuesat es no, nos lanza la respuesta: Quédate con la duda, amigo.
 
 ### Salida
 
-Como salida. solo muestra una salida general por fines de no profundizar en el chatBot ya que ese no es el fin del proyecto, pero los datos si estna almacenados pensados por si se le da seguimiento al bot.
 
-la salida es: he hecho tu petición, en breves se te enviara informacion de lo solicitado.
-
-si algo sale mal la salida sera: Algo salió mal.
+respectivamente en el orden de la segunda solicitud informacion. nos mostraria las siguientes respuetas:
+- Los horarios de este semestre se encuentran el siguiente enlace:
+- Redes de estudio de las carreras de ingenieria se encuentran en el siguiente enlace:
+- El calendario de labores de ingenieria esta en el enlace:
+- Si, a todos los estudiantes inscritos se les crea un correo en correo.ingenieria.usac.edu.gt, la contraseña para poder ingresar es la misma que utiliza para ingresar al portal estudiantil, la cuenta es <número de dpi>@ingenieria.usac.edu.gt
+- A los estudiantes de primer ingreso y con carnet del año en curso se les asigna automáticamente, no es necesario que realicen el procedimiento en el portal de ingeniería, esto única y exclusivamente para el primer semestre. Luego del primer semestre los estudiantes son responsables de su asignación (incluyendo curso de vacaciones de junio).
 
 
 ## Descripción de las funciones de Amazon Rekognition implementadas
