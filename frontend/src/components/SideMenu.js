@@ -47,22 +47,8 @@ const SideMenu = ({username}) => {
                 <Link to={`/ver-publicaciones/${username}`}  style={itemStyle}>Ver publicaciones</Link>
                 </NavText>
             </NavItem>
-            <NavItem eventKey="ver-fotos">
-                <NavIcon>
-                <i className="fa fa-fw fa-device" style={{ fontSize: '1.75em' }} />
-                </NavIcon>
-                <NavText  style={itemStyle}>
-                <Link to={`/ver-fotos/${username}`}  style={itemStyle}>Ver fotos</Link>
-                </NavText>
-            </NavItem>
-            <NavItem eventKey="subir-foto">
-                <NavIcon>
-                <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
-                </NavIcon>
-                <NavText  style={itemStyle}>
-                    <Link to={`/subir-foto/${username}`}  style={itemStyle}>Subir foto</Link>
-                </NavText>
-            </NavItem>
+            
+            
             <NavItem eventKey="editar-perfil">
                 <NavIcon>
                 <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
@@ -71,14 +57,7 @@ const SideMenu = ({username}) => {
                     <Link to={`/editar-perfil/${username}`} style={itemStyle}>Editar perfil</Link>
                 </NavText>
             </NavItem>
-            <NavItem eventKey="extraer-texto">
-                <NavIcon>
-                <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
-                </NavIcon>
-                <NavText style={itemStyle}>
-                    <Link to={`/extraer-texto/${username}`} style={itemStyle}>Extraer texto</Link>
-                </NavText>
-            </NavItem>
+          
             <NavItem eventKey="cerrar-sesion">
                 <NavIcon>
                 <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />

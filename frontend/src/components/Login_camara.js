@@ -22,21 +22,21 @@ const Login_camara = (props) => {
       event.preventDefault();
       console.log("Iniciando sesion...")
   
-      let foto = webcamRef.current.getScreenshot()
-      if(!foto){
+      let fotoc = webcamRef.current.getScreenshot()
+      if(!fotoc){
         toast.error("Error al capturar la foto, intente de nuevo", {
           position: toast.POSITION.TOP_RIGHT
         });
         return 
       }
       
-      let username,picture
-      username = event.target[0].value
-      picture = foto.split(",")[1]
+      let correo,foto
+      correo = event.target[0].value
+      foto = fotoc.split(",")[1]
   
       let datos = {
-        username,
-        picture    //La password es la foto en base64
+        correo,
+        foto    //La password es la foto en base64
       }
       console.log(datos)
       postFetch(URLS.login_camera,datos)
@@ -44,8 +44,8 @@ const Login_camara = (props) => {
         .then((data) =>{
           console.log(data)
           if(data.FaceMatches.length>0){
-            props.setUsername(username)
-            navegar(`/home/${username}`)
+            props.setUsername(correo)
+            navegar(`/home/${correo}`)
           }else if(data.FaceMatches.length===0){
             toast.error("No se ha iniciado sesion, el rostro no coincide", {
               position: toast.POSITION.TOP_RIGHT
@@ -69,7 +69,7 @@ const Login_camara = (props) => {
         <div className='login-form'>
           <h1 style={{"margin":"0"}}>Reconocimiento facial</h1>
           <form className='login-form-input  login-camara' onSubmit={handleSubmit}>
-            <TextField id="standard-basic" label="Username" variant="standard" required/>
+            <TextField id="standard-basic" label="correo" variant="standard" required/>
             <Webcam 
               ref={webcamRef} 
               className='login-cam'

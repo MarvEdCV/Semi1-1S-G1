@@ -19,13 +19,13 @@ const Login = (props) => {
     event.preventDefault();
     console.log("Iniciando sesion...")
 
-    let username,password
-    username = event.target[0].value
-    password = event.target[1].value
+    let correo,contrasenia
+    correo = event.target[0].value
+    contrasenia = event.target[1].value
 
     let datos = {
-      username,
-      password
+      correo,
+      contrasenia
     }
     //console.log(datos)
     postFetch(URLS.login,datos)
@@ -33,8 +33,9 @@ const Login = (props) => {
       .then((data) =>{
         console.log(data)
         if(data.successStatus === true){
-          props.setUsername(username)
-          navegar(`/home/${username}`)
+          console.log(data)
+          props.setUsername(correo)
+          navegar(`/home/${correo}`)
         }else{
           toast.error(data.errorMessage, {
             position: toast.POSITION.TOP_RIGHT
@@ -59,8 +60,8 @@ const Login = (props) => {
       <div className='login-form'>
         <h1>Iniciar sesion</h1>
         <form className='login-form-input' onSubmit={handleSubmit}>
-          <input  className='form-control' id='username' placeholder='Username'></input>
-          <input  className='form-control' id='password' type={'password'} placeholder='Contraseña'></input>
+          <input  className='form-control' id='correo' placeholder='Correo'></input>
+          <input  className='form-control' id='contrasenia' type={'password'} placeholder='Contraseña'></input>
           <div className='login-botones'>
             <Button variant='contained' onClick={() => navegar('/registro')}>Registrarse</Button>
             <Button type='submit' variant='contained' color='success' >Ingresar</Button>

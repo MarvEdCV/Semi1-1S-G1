@@ -33,14 +33,15 @@ const Registro = () => {
         }
 
         //Se obtienen todos los datos del usuario a registrar
-        let username,name,password,passwordver,picture
-        username = event.target[0].value
-        name = event.target[1].value
-        password = event.target[2].value
-        passwordver = event.target[3].value
-        picture = foto64.split(",")[1]
-        console.log(picture)
-        if(password !== passwordver){
+        let nombre,correo,dpi,contrasenia,passwordver,foto,filename
+        nombre = event.target[0].value
+        correo = event.target[1].value
+        dpi = event.target[2].value
+        contrasenia = event.target[3].value
+        passwordver = event.target[4].value
+        foto = foto64.split(",")[1]
+        console.log(foto)
+        if(contrasenia !== passwordver){
             toast.error("Las contraseñas ingresadas no coinciden", {
                 position: toast.POSITION.TOP_RIGHT
               });
@@ -48,11 +49,12 @@ const Registro = () => {
         }
 
         let usuario ={
-            username,
-            name,
-            password,
+            nombre,
+            correo,
+            dpi,
+            contrasenia,
             filename:"perfil.webp",
-            picture
+            foto
         }
         console.log(usuario)
         postFetch(URLS.user,usuario)
@@ -125,9 +127,10 @@ const Registro = () => {
             <div className='login-form'>
                 <h1>Registrarse</h1>
                 <form className='login-form-input' onSubmit={handleSubmit}>
-                    <input className='form-control' id='username' placeholder='Username' required></input>
-                    <input className='form-control' id='nombre' placeholder='Nombre completo' required></input>
-                    <input className='form-control' type={'password'} id='password' placeholder='Contraseña' required></input>
+                    <input className='form-control' id='nombre' placeholder='Nombre' required></input>
+                    <input className='form-control' id='correo' placeholder='Correo' required></input>
+                    <input className='form-control' id='dpi' placeholder='DPI' required></input>
+                    <input className='form-control' type={'password'} id='contrasenia' placeholder='Contraseña' required></input>
                     <input className='form-control' type={'password'} id='password-ver' placeholder='Verificar contraseña' required></input>
                     <div className='login-botones'>
                         <Button variant='contained' onClick={() => navegar('/')}>Login</Button> 
