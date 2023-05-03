@@ -11,10 +11,11 @@ import Boot from './Boot'
 const Home = (props) => {
     const {username} = useParams()
     const [dataUser, setDataUser] = useState({
-        picture_profile:"",
-        name:"",
-        username:"",
-        labels:[""]
+        url:"",
+        correo:"",
+        nombre_completo:"",
+        dpi:"",
+        
     })
 
     useEffect(() => {
@@ -31,22 +32,18 @@ const Home = (props) => {
     <div className='contenedor'>
         <div className='contenedor-izq'>
         <div className='contenedor-izq-items'>  
-            <img src={dataUser.picture_profile}></img>
-            <ul>
-                {dataUser.labels.map((etiqueta) =>(
-                    <li>{etiqueta}</li>
-                ))}
-            </ul>
+            <img src={dataUser.url}></img>
             <Boot></Boot>
         </div>
         </div>
         <div className='contenedor-der'>
             <div className='info'>
                 <div className='input-text'>
-                    <label htmlFor='username'>Nombre de usuario</label>
-                    <h3>{dataUser.username}</h3>
+                    <label htmlFor='username'>Email</label>
+                    <h3>{dataUser.correo}</h3>
                     <label htmlFor='nombre'>Nombre completo</label>
-                    <h4>{dataUser.name}</h4>
+                    <h4>{dataUser.nombre_completo}</h4>
+                    <h4>{dataUser.dpi}</h4>
                    
                 </div>
                 

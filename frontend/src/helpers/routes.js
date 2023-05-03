@@ -6,7 +6,7 @@ export const URLS = {
   publicaciones_categoria: `${url_servidor}/publicaciones-categoria`,
   publicacion: `${url_servidor}/publicacion`,
   categorias: `${url_servidor}/categorias`,
-  perfil: `${url_servidor}/user/get`,
+  perfil: `${url_servidor}/usuario`,
   login: `${url_servidor}/usuarios/login`,
   album: `${url_servidor}/album`,
   album_get: `${url_servidor}/album/get`,
